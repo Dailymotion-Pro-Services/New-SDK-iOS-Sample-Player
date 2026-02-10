@@ -7,6 +7,12 @@ Setup
 2. Open the project in Xcode.
 3. If necessary, change the Bundle Identifier and Team under the target's General settings to match your Apple Developer account.
 
+## Documentation
+
+- [Project Documentation](docs/PROJECT.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Development](docs/DEVELOPMENT.md)
+
 ## Running the project
 
 To run the project:
