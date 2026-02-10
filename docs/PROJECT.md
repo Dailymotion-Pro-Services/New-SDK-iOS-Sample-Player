@@ -4,37 +4,37 @@
 This is a UIKit sample app that demonstrates embedding the Dailymotion Player SDK, fetching a list of videos from Dailymotion’s API, and playing them sequentially in a vertically scrolling list.
 
 ## Repository Map
-- `/Users/y.satrio/Sites/ios-sample-player/README.md`  
+- `ios-sample-player/README.md`  
   Project usage instructions and brief code overview.
-- `/Users/y.satrio/Sites/ios-sample-player/LICENSE`  
+- `ios-sample-player/LICENSE`  
   MIT License.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/AppDelegate.swift`  
+- `ios-sample-player/PlayerExample/AppDelegate.swift`  
   Standard app lifecycle entry point.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/SceneDelegate.swift`  
+- `ios-sample-player/PlayerExample/SceneDelegate.swift`  
   Scene lifecycle; uses storyboard-based setup.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/ViewController.swift`  
+- `ios-sample-player/PlayerExample/ViewController.swift`  
   Main logic: fetch videos, build UI, manage player lifecycle and delegates.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/VideoView.swift`  
+- `ios-sample-player/PlayerExample/VideoView.swift`  
   Custom view that hosts the DMPlayerView, thumbnail, and status labels.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/Info.plist`  
+- `ios-sample-player/PlayerExample/Info.plist`  
   Scene manifest pointing to `Main.storyboard`.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/Base.lproj/Main.storyboard`  
+- `ios-sample-player/PlayerExample/Base.lproj/Main.storyboard`  
   Initial `ViewController` scene.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/Base.lproj/LaunchScreen.storyboard`  
+- `ios-sample-player/PlayerExample/Base.lproj/LaunchScreen.storyboard`  
   Launch screen.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/Assets.xcassets/*`  
+- `ios-sample-player/PlayerExample/Assets.xcassets/*`  
   App icons and accent color.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample.xcodeproj/*`  
+- `ios-sample-player/PlayerExample.xcodeproj/*`  
   Xcode project and workspace metadata.  
   Note: `xcuserdata` entries are user-specific and not part of runtime logic.
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`  
+- `ios-sample-player/PlayerExample.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`  
   SwiftPM dependency lock.
 
 ## Dependencies
 - Dailymotion Player SDK via Swift Package Manager:  
   - Repo: `https://github.com/dailymotion/player-sdk-ios`  
   - Version: `1.0.0` (revision `1e914e4703463b511f4d649f26ce4e9c5edee45f`)  
-  Source: `/Users/y.satrio/Sites/ios-sample-player/PlayerExample.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`
+  Source: `ios-sample-player/PlayerExample.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`
 
 ## App Flow
 1. App launches using `Main.storyboard`, which instantiates `ViewController`.
@@ -49,7 +49,7 @@ This is a UIKit sample app that demonstrates embedding the Dailymotion Player SD
 ## Key Components
 
 ### ViewController
-File: `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/ViewController.swift`
+File: `ios-sample-player/PlayerExample/ViewController.swift`
 
 Responsibilities:
 - Fetch video metadata from Dailymotion API.
@@ -65,7 +65,7 @@ Notable behavior:
 - Error handling via `handlePlayerError(...)`.
 
 ### VideoView
-File: `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/VideoView.swift`
+File: `ios-sample-player/PlayerExample/VideoView.swift`
 
 Responsibilities:
 - Display thumbnail and metadata labels.
@@ -81,21 +81,21 @@ Notable behavior:
 
 ### App / Scene Delegates
 Files:
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/AppDelegate.swift`
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/SceneDelegate.swift`
+- `ios-sample-player/PlayerExample/AppDelegate.swift`
+- `ios-sample-player/PlayerExample/SceneDelegate.swift`
 
 Responsibilities:
 - Standard lifecycle wiring; no custom behavior.
 
 ## UI / Storyboards
 - `Main.storyboard` defines `ViewController` as the initial view controller.  
-  Path: `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/Base.lproj/Main.storyboard`
+  Path: `ios-sample-player/PlayerExample/Base.lproj/Main.storyboard`
 - `LaunchScreen.storyboard` provides the launch UI.  
-  Path: `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/Base.lproj/LaunchScreen.storyboard`
+  Path: `ios-sample-player/PlayerExample/Base.lproj/LaunchScreen.storyboard`
 
 ## Configuration
 - `Info.plist` is minimal and declares the scene configuration and storyboard usage.  
-  Path: `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/Info.plist`
+  Path: `ios-sample-player/PlayerExample/Info.plist`
 
 ## Logging / Debugging
 Logs in `ViewController` print:

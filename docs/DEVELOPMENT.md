@@ -6,7 +6,7 @@
 - Apple Developer account if signing is required.
 
 ## Open The Project
-1. Open `/Users/y.satrio/Sites/ios-sample-player/PlayerExample.xcodeproj` in Xcode.
+1. Open `ios-sample-player/PlayerExample.xcodeproj` in Xcode.
 2. Select the `PlayerExample` target.
 
 ## Configure Signing (If Needed)
@@ -25,7 +25,7 @@
 ## Debugging
 - Logs include player, video, and ad lifecycle events.
 - Errors are normalized in `handlePlayerError(...)` in:
-  - `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/ViewController.swift`
+  - `ios-sample-player/PlayerExample/ViewController.swift`
 
 ## Common Issues
 - Player does not start:
@@ -35,6 +35,6 @@
   - Ensure a valid Team and unique Bundle Identifier.
 
 ## Project Files Of Interest
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/ViewController.swift`
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/VideoView.swift`
-- `/Users/y.satrio/Sites/ios-sample-player/PlayerExample/Base.lproj/Main.storyboard`
+- `ios-sample-player/PlayerExample/ViewController.swift`
+- `ios-sample-player/PlayerExample/VideoView.swift`
+- `ios-sample-player/PlayerExample/Base.lproj/Main.storyboard`

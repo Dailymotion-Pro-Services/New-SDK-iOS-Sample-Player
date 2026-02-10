@@ -45,7 +45,7 @@
 
 ## Dependencies
 - Dailymotion Player SDK via SwiftPM:
-  - Source: `/Users/y.satrio/Sites/ios-sample-player/PlayerExample.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`
+  - Source: `ios-sample-player/PlayerExample.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`
 
 ## Notes And Constraints
 - The player uses a fixed `playerId = "xe5zh"`.
