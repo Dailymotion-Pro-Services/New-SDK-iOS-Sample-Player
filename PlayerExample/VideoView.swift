@@ -12,6 +12,7 @@ import DailymotionPlayerSDK
 class VideoView: UIView {
     // Declare your subviews here
     private var playerView: DMPlayerView?
+    private var currentVideoId: String?
     private var showError: Bool = false
     private var errorDescription: String = ""
     private var playerContainer = UIView()
@@ -91,6 +92,11 @@ class VideoView: UIView {
     }
     
     func loadVideo(withId id: String, playerDelegate: DMPlayerDelegate, videoDelegate: DMVideoDelegate, adDelegate: DMAdDelegate) {
+        if playerView != nil {
+            playerView?.play()
+            return
+        }
+        currentVideoId = id
         var playerParams = DMPlayerParameters(mute: true)
         playerParams.customConfig = ["customParams":"test/value=1234"]
         
@@ -114,6 +120,18 @@ class VideoView: UIView {
             }
         
         }
+    }
+
+    func playVideo(withId id: String, playerDelegate: DMPlayerDelegate, videoDelegate: DMVideoDelegate, adDelegate: DMAdDelegate) {
+        if currentVideoId == id, playerView != nil {
+            playerView?.play()
+            return
+        }
+        loadVideo(withId: id, playerDelegate: playerDelegate, videoDelegate: videoDelegate, adDelegate: adDelegate)
+    }
+
+    func pauseVideo() {
+        playerView?.pause()
     }
     
     private func addPlayerView(playerView: DMPlayerView) {

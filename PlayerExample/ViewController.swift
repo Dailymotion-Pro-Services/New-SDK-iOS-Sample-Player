@@ -8,33 +8,6 @@
 import UIKit
 import DailymotionPlayerSDK
 
-/// A structure representing a video with its associated properties.
-///
-/// The `Video` structure has the following properties:
-/// - `id`: A string representing the unique identifier of the video.
-/// - `title`: A string representing the title of the video.
-/// - `thumbnailURL`: A URL representing the location of the video's thumbnail image.
-///
-/// The structure also includes an `init?(dictionary: [String: Any])` initializer, which tries to create a `Video` instance from a given dictionary. If the dictionary does not contain the required keys or values, the initializer returns `nil`.
-struct Video {
-    let id: String
-    let title: String
-    let thumbnailURL: URL
-    
-    init?(dictionary: [String: Any]) {
-        guard let id = dictionary["id"] as? String,
-              let title = dictionary["title"] as? String,
-              let thumbnailURLString = dictionary["thumbnail_240_url"] as? String,
-              let thumbnailURL = URL(string: thumbnailURLString) else {
-            return nil
-        }
-
-        self.id = id
-        self.title = title
-        self.thumbnailURL = thumbnailURL
-    }
-}
-
 class ViewController: UIViewController {
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -61,57 +34,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Case 1: Sequential"
         setupUI()
         
-        fetchData { fetchedVideos in
-            let convertedVideos = fetchedVideos.compactMap { Video(dictionary: $0) }
+        VideoService.fetchVideos { videos in
             DispatchQueue.main.async {
-                self.videos = convertedVideos
-                self.populateStackView(with: convertedVideos)
+                self.videos = videos
+                self.populateStackView(with: videos)
             }
         }
-    }
-    
-    /// Fetches video data from the Dailymotion API and returns the result in the completion handler.
-    ///
-    /// - Parameters:
-    ///   - completion: A closure that takes an array of dictionaries containing video information as its argument.
-    ///                 Each dictionary contains keys: `id`, `thumbnail_240_url`, and `title`.
-    ///
-    /// Example usage:
-    /// ```
-    /// fetchData { videos in
-    ///     for video in videos {
-    ///         print(video["title"])
-    ///     }
-    /// }
-    /// ```
-    private func fetchData(completion: @escaping ([[String: Any]]) -> Void) {
-        let dailymotionURL = "https://api.dailymotion.com/videos?fields=id,thumbnail_240_url,title&limit=5&owners=suaradotcom"
-        
-        guard let url = URL(string: dailymotionURL) else {
-            print("🔥 dm: Invalid URL")
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                       let videos = json["list"] as? [[String: Any]] {
-                        completion(videos)
-                    } else {
-                        print("🔥 dm: Failed to parse JSON")
-                    }
-                } catch {
-                    print("🔥 dm: \(error.localizedDescription)")
-                }
-            } else {
-                print("🔥 dm: \(error?.localizedDescription ?? "Unknown error")")
-            }
-        }
-        
-        task.resume()
     }
     
     /// Sets up the user interface by configuring the main view, scroll view, and stack view.
